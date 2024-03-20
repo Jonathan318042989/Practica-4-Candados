@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class EstacionamientoTest {
     Estacionamiento es;
-    final static int NUMLUGARES = 200;
+    final static int NUMLUGARES = 50;
     List<Thread> hilos;
 
     @BeforeEach

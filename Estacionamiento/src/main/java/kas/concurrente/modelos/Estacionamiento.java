@@ -1,5 +1,8 @@
 package kas.concurrente.modelos;
 
+import java.util.Random;
+import java.util.logging.Logger;
+
 /**
  * En esta clase se simula el estacionamiento en si
  * Posee un conjunto de arreglos de tipo Lugar (o arreglo bidimensional?)
@@ -10,10 +13,11 @@ package kas.concurrente.modelos;
  * @version 1.0
  */
 public class Estacionamiento {
-
-    private Integer lugaresDisponibles;
+    private Random random = new Random();
+    private volatile Integer lugaresDisponibles;
     private Integer capacidad;
     private Lugar[] lugares;
+    private static final Logger LOG = Logger.getLogger("paquete.NombreClase");
 
     /**
      * Metodo constructor
@@ -83,9 +87,22 @@ public class Estacionamiento {
      * @throws InterruptedException Si llega a fallar
      */
     public void entraCarro(int nombre) throws InterruptedException {
-        /**
-         * Aqui va tu codigo
-         */
+        Boolean estacionado = false;
+        String carroEntra = "\u001B[34m Carro " + nombre + " entrando";
+        LOG.info(carroEntra);
+        while (Boolean.FALSE.equals(estacionado)) {
+            if (Boolean.FALSE.equals(this.estaLleno())) {
+                Integer lugar = this.obtenLugar();
+                if (lugar != -1) {
+                    this.setLugaresDisponibles(this.getLugaresDisponibles() - 1);
+                    asignaLugar(lugar);
+                    estacionado = true;
+                    this.setLugaresDisponibles(this.getLugaresDisponibles() + 1);
+                }
+            }
+        }
+        String carroSale = "\u001B[31m Carro " + nombre + " saliendo";
+        LOG.info(carroSale);
     }
 
     /**
@@ -95,9 +112,9 @@ public class Estacionamiento {
      * @throws InterruptedException
      */
     public void asignaLugar(int lugar) throws InterruptedException {
-        /**
-         * Aqui va tucodigo
-         */
+        if (Boolean.TRUE.equals(this.lugares[lugar].getDisponible())) {
+            this.lugares[lugar].estaciona();
+        }
     }
 
     /**
@@ -108,9 +125,14 @@ public class Estacionamiento {
      * @return Retorna el indice del lugar
      */
     public int obtenLugar() {
-        /**
-         * Aqui va tu codigo
-         */
-        return -1;
+        if (this.estaLleno()) {
+            return -1;
+        } else {
+            Integer indice = random.nextInt(capacidad);
+            while (Boolean.FALSE.equals(this.lugares[indice].getDisponible())) {
+                indice = random.nextInt(capacidad);
+            }
+            return indice;
+        }
     }
 }
