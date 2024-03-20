@@ -50,7 +50,6 @@ public class Lugar {
             this.semaforo.acquire();
             this.setDisponible(false);
             this.vePorPastel();
-            this.incrementaVecesEstacionado();
         }
     }
 
@@ -66,6 +65,7 @@ public class Lugar {
         Thread.sleep(tiempo);
         this.semaforo.release();
         this.setDisponible(true);
+        this.incrementaVecesEstacionado();
     }
 
     public Integer getId() {

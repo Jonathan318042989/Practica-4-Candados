@@ -1,0 +1,185 @@
+# Created at 2024-03-20T10:33:27.889
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: null
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:398)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+
+# Created at 2024-03-20T10:33:28.064
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 14 saliendo
+
+
+# Created at 2024-03-20T10:33:28.412
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 24 saliendo
+
+
+# Created at 2024-03-20T10:33:28.413
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 28 saliendo
+
+
+# Created at 2024-03-20T10:33:28.452
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 42 saliendo
+
+
+# Created at 2024-03-20T10:33:28.529
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 48 saliendo
+
+
+# Created at 2024-03-20T10:33:28.890
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 9 saliendo
+
+
+# Created at 2024-03-20T10:33:28.945
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 7 saliendo
+
+
+# Created at 2024-03-20T10:33:29.000
+Unexpected IOException with stream: mar. 20, 2024 10:33:28 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 23 saliendo
+
+
+# Created at 2024-03-20T10:33:29.355
+Unexpected IOException with stream: mar. 20, 2024 10:33:29 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 1 saliendo
+
+
+# Created at 2024-03-20T10:33:29.595
+Unexpected IOException with stream: mar. 20, 2024 10:33:29 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 12 saliendo
+
+
+# Created at 2024-03-20T10:33:29.611
+Unexpected IOException with stream: mar. 20, 2024 10:33:29 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 30 saliendo
+
+
+# Created at 2024-03-20T10:33:29.905
+Unexpected IOException with stream: mar. 20, 2024 10:33:29 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 13 saliendo
+
+
+# Created at 2024-03-20T10:33:30.383
+Unexpected IOException with stream: mar. 20, 2024 10:33:30 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 85 saliendo
+
+
+# Created at 2024-03-20T10:33:30.625
+Unexpected IOException with stream: mar. 20, 2024 10:33:30 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 15 saliendo
+
+
+# Created at 2024-03-20T10:33:30.880
+Unexpected IOException with stream: mar. 20, 2024 10:33:30 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 50 saliendo
+
+
+# Created at 2024-03-20T10:33:31.307
+Unexpected IOException with stream: mar. 20, 2024 10:33:31 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 33 saliendo
+
+
+# Created at 2024-03-20T10:33:31.630
+Unexpected IOException with stream: mar. 20, 2024 10:33:31 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 10 saliendo
+
+
+# Created at 2024-03-20T10:33:32.474
+Unexpected IOException with stream: mar. 20, 2024 10:33:32 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 11 saliendo
+
+
+# Created at 2024-03-20T10:33:32.701
+Unexpected IOException with stream: mar. 20, 2024 10:33:32 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 3 saliendo
+
+
+# Created at 2024-03-20T10:33:32.717
+Unexpected IOException with stream: mar. 20, 2024 10:33:32 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 54 saliendo
+
+
+# Created at 2024-03-20T10:33:32.822
+Unexpected IOException with stream: mar. 20, 2024 10:33:32 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 53 saliendo
+
+
+# Created at 2024-03-20T10:33:33.729
+Unexpected IOException with stream: mar. 20, 2024 10:33:33 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 32 saliendo
+
+
+# Created at 2024-03-20T10:33:33.968
+Unexpected IOException with stream: mar. 20, 2024 10:33:33 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 18 saliendo
+
+
+# Created at 2024-03-20T10:33:34.932
+Unexpected IOException with stream: mar. 20, 2024 10:33:34 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 51 saliendo
+
+
+# Created at 2024-03-20T10:33:35.319
+Unexpected IOException with stream: mar. 20, 2024 10:33:35 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 63 saliendo
+
+
+# Created at 2024-03-20T10:33:35.896
+Unexpected IOException with stream: mar. 20, 2024 10:33:35 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 4 saliendo
+
+
+# Created at 2024-03-20T10:33:35.963
+Unexpected IOException with stream: mar. 20, 2024 10:33:35 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 60 saliendo
+
+
+# Created at 2024-03-20T10:33:36.085
+Unexpected IOException with stream: mar. 20, 2024 10:33:36 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 8 saliendo
+
+
+# Created at 2024-03-20T10:33:37.181
+Unexpected IOException with stream: mar. 20, 2024 10:33:37 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 16 saliendo
+
+
+# Created at 2024-03-20T10:33:38.236
+Unexpected IOException with stream: mar. 20, 2024 10:33:38 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 22 saliendo
+
+
+# Created at 2024-03-20T10:33:39.957
+Unexpected IOException with stream: mar. 20, 2024 10:33:39 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 47 saliendo
+
+
+# Created at 2024-03-20T10:33:40.812
+Unexpected IOException with stream: mar. 20, 2024 10:33:40 A. M. kas.concurrente.modelos.Estacionamiento entraCarro
+INFO: [31m Carro 2 saliendo
+
+
+# Created at 2024-03-20T10:33:40.825
+Unexpected IOException: 8,1,kas.concurrente.modelos.EstacionamientoTest,conteoGlobalVecesEstacionado,null,expected: <100> but was: <94>,null,expected: <100> but was: <94>,EstacionamientoTest.conteoGlobalVecesEstacionado:53 expected: <100> but was: <94>,org.opentest4j.AssertionFailedError: expected: <100> but was: <94>\000A\0009at kas.concurrente.modelos.EstacionamientoTest.conteoGlobalVecesEstacionado(EstacionamientoTest.java:53)\000A
+
+
+# Created at 2024-03-20T10:33:40.826
+Unexpected IOException: 5,1,kas.concurrente.modelos.EstacionamientoTest,lugaresDisponiblesITest,null,null,null
+
+
+# Created at 2024-03-20T10:33:40.828
+Unexpected IOException: 6,1,kas.concurrente.modelos.EstacionamientoTest,lugaresDisponiblesITest,null,null,null
+
+
+# Created at 2024-03-20T10:33:40.829
+Unexpected IOException: 5,1,kas.concurrente.modelos.EstacionamientoTest,conteoVecesEstacionado,null,null,null
+
+

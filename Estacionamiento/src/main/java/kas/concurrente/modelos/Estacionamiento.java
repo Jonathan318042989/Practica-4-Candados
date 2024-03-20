@@ -89,7 +89,7 @@ public class Estacionamiento {
     public void entraCarro(int nombre) throws InterruptedException {
         Boolean estacionado = false;
         String carroEntra = "\u001B[34m Carro " + nombre + " entrando";
-        LOG.info(carroEntra);
+        // LOG.info(carroEntra);
         while (Boolean.FALSE.equals(estacionado)) {
             if (Boolean.FALSE.equals(this.estaLleno())) {
                 Integer lugar = this.obtenLugar();
@@ -102,7 +102,7 @@ public class Estacionamiento {
             }
         }
         String carroSale = "\u001B[31m Carro " + nombre + " saliendo";
-        LOG.info(carroSale);
+        // LOG.info(carroSale);
     }
 
     /**
