@@ -51,6 +51,11 @@ public class Main implements Runnable {
         for (Thread hilo : hilos) {
             hilo.join();
         }
+        int res = 0;
+        for (int i = 0; i < main.estacionamiento.getLugares().length; ++i) {
+            res += main.estacionamiento.getLugares()[i].getVecesEstacionado();
+        }
+        System.out.println(res);
     }
 
     /**

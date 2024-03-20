@@ -1,6 +1,7 @@
 package kas.concurrente.modelos;
 
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 
 /**
@@ -14,6 +15,7 @@ import java.util.logging.Logger;
  */
 public class Estacionamiento {
     private Random random = new Random();
+    private Semaphore semaforo;
     private volatile Integer lugaresDisponibles;
     private Integer capacidad;
     private Lugar[] lugares;
@@ -29,6 +31,7 @@ public class Estacionamiento {
         this.setLugaresDisponibles(capacidad);
         this.setCapacidad(capacidad);
         this.inicializaLugares(capacidad);
+        this.semaforo = new Semaphore(capacidad);
     }
 
     public int getLugaresDisponibles() {
@@ -94,10 +97,12 @@ public class Estacionamiento {
             if (Boolean.FALSE.equals(this.estaLleno())) {
                 Integer lugar = this.obtenLugar();
                 if (lugar != -1) {
+                    this.semaforo.acquire();
                     this.setLugaresDisponibles(this.getLugaresDisponibles() - 1);
                     asignaLugar(lugar);
                     estacionado = true;
                     this.setLugaresDisponibles(this.getLugaresDisponibles() + 1);
+                    this.semaforo.release();
                 }
             }
         }

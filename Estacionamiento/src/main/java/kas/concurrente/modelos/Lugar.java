@@ -46,11 +46,10 @@ public class Lugar {
      * @throws InterruptedException Si algo falla
      */
     public void estaciona() throws InterruptedException {
-        if (Boolean.TRUE.equals(disponible)) {
-            this.semaforo.acquire();
-            this.setDisponible(false);
-            this.vePorPastel();
-        }
+        this.semaforo.acquire();
+        this.setDisponible(false);
+        this.vePorPastel();
+        this.semaforo.release();
     }
 
     /**
@@ -62,10 +61,9 @@ public class Lugar {
      */
     public void vePorPastel() throws InterruptedException {
         Integer tiempo = random.nextInt(1000, 5000);
-        Thread.sleep(tiempo);
-        this.semaforo.release();
-        this.setDisponible(true);
+        Thread.sleep(1000);
         this.incrementaVecesEstacionado();
+        this.setDisponible(true);
     }
 
     public Integer getId() {

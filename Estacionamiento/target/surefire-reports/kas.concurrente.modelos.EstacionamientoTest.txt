@@ -1,10 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: kas.concurrente.modelos.EstacionamientoTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 179.063 s <<< FAILURE! - in kas.concurrente.modelos.EstacionamientoTest
-conteoGlobalVecesEstacionado  Time elapsed: 23.241 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <100> but was: <92>
-	at kas.concurrente.modelos.EstacionamientoTest.conteoGlobalVecesEstacionado(EstacionamientoTest.java:53)
-
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 52.484 s - in kas.concurrente.modelos.EstacionamientoTest
+conteoGlobalVecesEstacionado  Time elapsed: 2.147 s
 lugaresDisponiblesITest  Time elapsed: 0.001 s
-conteoVecesEstacionado  Time elapsed: 155.814 s
+conteoVecesEstacionado  Time elapsed: 50.33 s
