@@ -1,6 +1,7 @@
 package kas.concurrente;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import kas.concurrente.constante.Contante;
 import kas.concurrente.modelos.Estacionamiento;
@@ -16,6 +17,7 @@ import kas.concurrente.modelos.Estacionamiento;
  */
 public class Main implements Runnable {
 
+    private static final Logger LOG = Logger.getLogger("paquete.NombreClase");
     Estacionamiento estacionamiento;
 
     /**
@@ -55,7 +57,8 @@ public class Main implements Runnable {
         for (int i = 0; i < main.estacionamiento.getLugares().length; ++i) {
             res += main.estacionamiento.getLugares()[i].getVecesEstacionado();
         }
-        System.out.println(res);
+        String pasaron = "Pasaron " + res + " carros";
+        LOG.info(pasaron);
     }
 
     /**

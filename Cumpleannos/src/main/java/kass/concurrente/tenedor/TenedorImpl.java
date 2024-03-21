@@ -4,49 +4,54 @@ package kass.concurrente.tenedor;
  * Clase que implementa el tenedor
  * Tenemos una variable entera que cuenta el numero de veces que fue tomado
  * Tiene una variable que simboliza su id
+ * 
  * @version 1.1
  * @author <Su equipo>
  */
 public class TenedorImpl implements Tenedor {
 
-    public TenedorImpl(int id){
+    // True en caso de que este siendo utilizado el tenedor
+    Boolean esUtilizado = false;
 
+    // Id del tenedor
+    Integer id;
+
+    // Las veces que se ha tomado el tenedor
+    Integer vecesTomado = 0;
+
+    public TenedorImpl(int id) {
+        this.id = id;
     }
 
     @Override
     public void tomar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'tomar'");
+        this.vecesTomado++;
+        this.esUtilizado = true;
     }
 
     @Override
     public void soltar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'soltar'");
+        this.esUtilizado = false;
     }
 
     @Override
     public int getId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+        return this.id;
     }
 
     @Override
     public int getVecesTomado() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'vecesTomado'");
+        return this.vecesTomado;
     }
 
     @Override
     public void setId(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+        this.id = id;
     }
 
     @Override
     public void setVecesTomado(int vecesTomado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setVecesTomado'");
+        this.vecesTomado = vecesTomado;
     }
-    
+
 }

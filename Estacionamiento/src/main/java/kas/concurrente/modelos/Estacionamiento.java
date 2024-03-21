@@ -91,7 +91,7 @@ public class Estacionamiento {
      */
     public void entraCarro(int nombre) throws InterruptedException {
         String carroEntra = "\u001B[34m Carro " + nombre + " entrando";
-        // LOG.info(carroEntra);
+        LOG.info(carroEntra);
         Integer lugar = this.obtenLugar();
         this.semaforo.acquire();
         this.setLugaresDisponibles(this.getLugaresDisponibles() - 1);
@@ -99,7 +99,7 @@ public class Estacionamiento {
         this.setLugaresDisponibles(this.getLugaresDisponibles() + 1);
         this.semaforo.release();
         String carroSale = "\u001B[31m Carro " + nombre + " saliendo";
-        // LOG.info(carroSale);
+        LOG.info(carroSale);
     }
 
     /**

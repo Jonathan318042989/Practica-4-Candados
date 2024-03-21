@@ -1,19 +1,40 @@
 package kass.concurrente.invitados;
 
-import kass.concurrente.tenedor.Tenedor;
+import java.util.logging.Logger;
+
+import kass.concurrente.tenedor.*;
 
 /**
  * Clase abstracta que modela al inversionista.
  * El inversionista tiene 2 tenedores a sus lados.
  * El inversionista posee un ID para que se pueda identificar.
- * El inversionista tiene una variable que indica el numero de veces que ha comido.
+ * El inversionista tiene una variable que indica el numero de veces que ha
+ * comido.
+ * 
  * @version 1.0
  * @author Kassandra Mirael
  */
 public abstract class Inversionista implements Runnable {
 
+    private static final Logger LOG = Logger.getLogger("paquete.NombreClase");
+
+    private TenedorImpl tenedorDer;
+
+    private TenedorImpl tenedorIzq;
+
+    /* El id con el que se identifica */
+    private Integer id;
+
+    /* Las veces que a comido el inversionista */
+    private Integer vecesComido = 0;
+
     @Override
     public void run() {
+        try {
+            piensa();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         /**
          * El inversionista debe pensar y entrar a la mesa un periodo de veces
          * puesto en el test, agrega el valor aqui.
@@ -27,12 +48,14 @@ public abstract class Inversionista implements Runnable {
      * PRIMERO toma los tenedores.
      * DESPUES come.
      * FINALMENTE los suelta para que los demas los puedan usar.
-     * @throws InterruptedException <Escribe porque se lanzaria esta exception>
+     * 
+     * @throws InterruptedException Cuando el hilo que se utiliza en el método come
+     *                              se detiene
      */
-    public void entraALaMesa() throws InterruptedException{
-        /**
-         * Aqui va tu codigo
-         */
+    public void entraALaMesa() throws InterruptedException {
+        tomaTenedores();
+        come();
+        sueltaTenedores();
     }
 
     /**
@@ -41,24 +64,25 @@ public abstract class Inversionista implements Runnable {
      * El inversionista le toma un par de milisegundos comer.
      * ESTA ES LA SECCION CRITICA, SIGNIFICA PELIGRO
      * Incrementa el numero de veces que ha comido.
-     * @throws InterruptedException <Escribe porque se lanzaria esta exception>
+     * 
+     * @throws InterruptedException Cuando el hilo que se utiliza para dormir se
+     *                              detenga
      */
-    public void come() throws InterruptedException{
-        /**
-         * Aqui va tu codigo
-         */
+    public void come() throws InterruptedException {
+        Thread.sleep(generaTiempoDeEspera());
+        vecesComido++;
     }
 
     /**
      * Metodo que hace que el inversionista piense.
      * El inversionista pensara por una par de milisegundos.
      * Esto pasa antes de que tome sus tenedores.
-     * @throws InterruptedException <Escribe porque se lanzaria esta exception>
+     * 
+     * @throws InterruptedException En caso de que el hilo que se utiliza para
+     *                              dormir se detenga
      */
     public void piensa() throws InterruptedException {
-        /**
-         * Aqui va tu codigo
-         */
+        Thread.sleep(generaTiempoDeEspera());
     }
 
     /**
@@ -69,19 +93,20 @@ public abstract class Inversionista implements Runnable {
 
     /**
      * Metodo que hace que el inversionista suelte ambos tenedores una vez
-     * que terminara de comer. 
+     * que terminara de comer.
      * De esta manera otro los puede usar.
      * Suelta los tenedores uno por uno.
      */
     public abstract void sueltaTenedores();
-    
+
     /**
      * Metodo que genera un numero pseudoaleatorio entre 1 y 10
+     * 
      * @return El tiempo de espera
      */
-    private long generaTiempoDeEspera(){
-        double i=Math.random()*10.0;
-        return (long)i ;
+    private long generaTiempoDeEspera() {
+        double i = Math.random() * 10.0;
+        return (long) i;
     }
 
     /*
@@ -89,35 +114,41 @@ public abstract class Inversionista implements Runnable {
      * Documenta los metodos.
      * Cuando acabes borra estew comentario
      */
-    public int getId(){
-        return 0;
+    public int getId() {
+        return id;
     }
 
-    public void setId(int id){
-
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Tenedor getTenedorIzq(){
-        return null;
+    public Tenedor getTenedorIzq() {
+        return tenedorIzq;
     }
 
-    public void setTenedorIzq(Tenedor t){
-
+    public void setTenedorIzq(Tenedor t) {
+        if (t instanceof TenedorImpl) {
+            TenedorImpl tenedor = (TenedorImpl) t;
+            this.tenedorIzq = tenedor;
+        }
     }
 
-    public Tenedor getTenedorDer(){
-        return null;
+    public Tenedor getTenedorDer() {
+        return tenedorDer;
     }
 
-    public void setTenedorDer(Tenedor t){
-
+    public void setTenedorDer(Tenedor t) {
+        if (t instanceof TenedorImpl) {
+            TenedorImpl tenedor = (TenedorImpl) t;
+            this.tenedorDer = tenedor;
+        }
     }
 
-    public int getVecesComido(){
-        return 0;
+    public int getVecesComido() {
+        return vecesComido;
     }
 
-    public void setVecesComido(int vecesComido){
-        
+    public void setVecesComido(int vecesComido) {
+        this.vecesComido = vecesComido;
     }
 }

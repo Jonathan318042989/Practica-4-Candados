@@ -7,26 +7,31 @@ import kass.concurrente.candados.Semaphore;
  * Este algoritmo es similar al del filtro, lo diferente es que
  * permite una cantidad m de hilos SIMULTANEOS en la seccion critica
  * Todo es casi igual, solo realiza la modificacion pertinente para esto
+ * 
  * @version 1.0
  * @author Kassandra Mirael
  */
 public class Filtro implements Semaphore {
 
+    Boolean[] flag;
+    Integer[] label;
+    Integer numHilos;
+    Integer maxHilos;
+
     /**
      * Constructor del Filtro
-     * @param hilos El numero de Hilos Permitidos
+     * 
+     * @param hilos                El numero de Hilos Permitidos
      * @param maxHilosConcurrentes EL numero de hilos concurrentes simultaneos
      */
     public Filtro(int hilos, int maxHilosConcurrentes) {
-        /**
-         * AQUI VA TU CODIGO
-         */
+        this.numHilos = hilos;
+        this.maxHilos = maxHilosConcurrentes;
     }
 
     @Override
     public int getPermitsOnCriticalSection() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPermitsOnCriticalSection'");
+        return maxHilos;
     }
 
     @Override
@@ -40,5 +45,5 @@ public class Filtro implements Semaphore {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'release'");
     }
-    
+
 }
