@@ -17,7 +17,7 @@ public class Lugar {
     private Integer id;
     private Boolean disponible;
     private Semaphore semaforo;
-    private volatile Integer vecesEstacionado;
+    private volatile int vecesEstacionado;
 
     /**
      * Metodo constructor
@@ -61,7 +61,7 @@ public class Lugar {
      */
     public void vePorPastel() throws InterruptedException {
         Integer tiempo = random.nextInt(1000, 5000);
-        Thread.sleep(1000);
+        Thread.sleep(tiempo);
         this.incrementaVecesEstacionado();
         this.setDisponible(true);
     }

@@ -90,22 +90,14 @@ public class Estacionamiento {
      * @throws InterruptedException Si llega a fallar
      */
     public void entraCarro(int nombre) throws InterruptedException {
-        Boolean estacionado = false;
         String carroEntra = "\u001B[34m Carro " + nombre + " entrando";
         // LOG.info(carroEntra);
-        while (Boolean.FALSE.equals(estacionado)) {
-            if (Boolean.FALSE.equals(this.estaLleno())) {
-                Integer lugar = this.obtenLugar();
-                if (lugar != -1) {
-                    this.semaforo.acquire();
-                    this.setLugaresDisponibles(this.getLugaresDisponibles() - 1);
-                    asignaLugar(lugar);
-                    estacionado = true;
-                    this.setLugaresDisponibles(this.getLugaresDisponibles() + 1);
-                    this.semaforo.release();
-                }
-            }
-        }
+        Integer lugar = this.obtenLugar();
+        this.semaforo.acquire();
+        this.setLugaresDisponibles(this.getLugaresDisponibles() - 1);
+        asignaLugar(lugar);
+        this.setLugaresDisponibles(this.getLugaresDisponibles() + 1);
+        this.semaforo.release();
         String carroSale = "\u001B[31m Carro " + nombre + " saliendo";
         // LOG.info(carroSale);
     }
@@ -117,9 +109,7 @@ public class Estacionamiento {
      * @throws InterruptedException
      */
     public void asignaLugar(int lugar) throws InterruptedException {
-        if (Boolean.TRUE.equals(this.lugares[lugar].getDisponible())) {
-            this.lugares[lugar].estaciona();
-        }
+        this.lugares[lugar].estaciona();
     }
 
     /**
@@ -130,14 +120,10 @@ public class Estacionamiento {
      * @return Retorna el indice del lugar
      */
     public int obtenLugar() {
-        if (this.estaLleno()) {
-            return -1;
-        } else {
-            Integer indice = random.nextInt(capacidad);
-            while (Boolean.FALSE.equals(this.lugares[indice].getDisponible())) {
-                indice = random.nextInt(capacidad);
-            }
-            return indice;
+        Integer indice = random.nextInt(capacidad);
+        while (Boolean.FALSE.equals(this.lugares[indice].getDisponible())) {
+            indice = random.nextInt(capacidad);
         }
+        return indice;
     }
 }
