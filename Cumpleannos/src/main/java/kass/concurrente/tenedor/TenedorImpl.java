@@ -54,4 +54,11 @@ public class TenedorImpl implements Tenedor {
         this.vecesTomado = vecesTomado;
     }
 
+    /**
+     * Nos indica si esta siendo utilizado
+     * @return True en caso de que el tenedor este siendo utilizado, false en caso contrario
+     */
+    public boolean getEsUtilizado(){
+        return esUtilizado;
+    }
 }

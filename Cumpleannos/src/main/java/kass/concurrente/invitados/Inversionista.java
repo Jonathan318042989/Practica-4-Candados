@@ -3,6 +3,8 @@ package kass.concurrente.invitados;
 import java.util.logging.Logger;
 
 import kass.concurrente.tenedor.*;
+import kass.concurrente.candadosImpl.PetersonLock;
+import kass.concurrente.candados.Lock;
 
 /**
  * Clase abstracta que modela al inversionista.
@@ -18,9 +20,11 @@ public abstract class Inversionista implements Runnable {
 
     private static final Logger LOG = Logger.getLogger("paquete.NombreClase");
 
-    private TenedorImpl tenedorDer;
+    private Lock lock = new PetersonLock();
 
-    private TenedorImpl tenedorIzq;
+    TenedorImpl tenedorDer;
+
+    TenedorImpl tenedorIzq;
 
     /* El id con el que se identifica */
     private Integer id;
@@ -30,10 +34,13 @@ public abstract class Inversionista implements Runnable {
 
     @Override
     public void run() {
-        try {
-            piensa();
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+        for(int i = 0; i < 500; i++){
+            try {
+                piensa();
+                entraALaMesa();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
         /**
          * El inversionista debe pensar y entrar a la mesa un periodo de veces
@@ -69,8 +76,14 @@ public abstract class Inversionista implements Runnable {
      *                              detenga
      */
     public void come() throws InterruptedException {
+        lock.lock();
+        while (tenedorDer.getEsUtilizado() || tenedorIzq.getEsUtilizado()) {
+            tomaTenedores();
+        }
         Thread.sleep(generaTiempoDeEspera());
+        sueltaTenedores();
         vecesComido++;
+        lock.unlock();
     }
 
     /**
