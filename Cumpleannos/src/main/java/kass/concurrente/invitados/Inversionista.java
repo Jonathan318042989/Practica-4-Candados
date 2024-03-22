@@ -76,10 +76,12 @@ public abstract class Inversionista implements Runnable {
      *                              detenga
      */
     public void come() throws InterruptedException {
-        lock.lock();
+        //Espera en caso de que alguno de los tenedores està siendo utilizado que
         while (tenedorDer.getEsUtilizado() || tenedorIzq.getEsUtilizado()) {
-            tomaTenedores();
+            Thread.sleep(generaTiempoDeEspera());
         }
+        lock.lock();
+        tomaTenedores();
         Thread.sleep(generaTiempoDeEspera());
         sueltaTenedores();
         vecesComido++;
