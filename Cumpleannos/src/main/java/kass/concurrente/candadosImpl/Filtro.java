@@ -2,6 +2,8 @@ package kass.concurrente.candadosImpl;
 
 import kass.concurrente.candados.Semaphore;
 
+import java.util.Arrays;
+
 /**
  * Clase que modela el Algoritmo del Filtro Modificado
  * Este algoritmo es similar al del filtro, lo diferente es que
@@ -13,10 +15,10 @@ import kass.concurrente.candados.Semaphore;
  */
 public class Filtro implements Semaphore {
 
-    Boolean[] flag;
-    Integer[] label;
-    Integer numHilos;
-    Integer maxHilos;
+    private volatile int[] victima;
+    private volatile int[] nivel;
+    private Integer numHilos;
+    private Integer maxHilos;
 
     /**
      * Constructor del Filtro
@@ -27,6 +29,8 @@ public class Filtro implements Semaphore {
     public Filtro(int hilos, int maxHilosConcurrentes) {
         this.numHilos = hilos;
         this.maxHilos = maxHilosConcurrentes;
+        this.victima = new int[numHilos];
+        this.nivel = new int[numHilos];
     }
 
     @Override
@@ -36,14 +40,27 @@ public class Filtro implements Semaphore {
 
     @Override
     public void acquire() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'acquire'");
+        int id = Integer.parseInt(Thread.currentThread().getName());
+        for (int i = 1; i < this.numHilos; i++) {
+            this.nivel[id] = i;
+            this.victima[i] = id;
+            boolean conflicto = true;
+            while (conflicto) {
+                conflicto = false;
+                for (int k = 1; k < this.numHilos; k++) {
+                    if (k != id && this.nivel[k] >= i && this.victima[i] == id) {
+                        conflicto = true;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     @Override
     public void release() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'release'");
+        int id = Integer.parseInt(Thread.currentThread().getName());
+        this.nivel[id] = 0;
     }
 
 }

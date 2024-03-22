@@ -8,20 +8,20 @@ import org.junit.jupiter.api.BeforeEach;
 
 import kass.concurrente.candadosImpl.PetersonLock;
 
-public class PetersonLockTest {
-    static final int ITERACIONES = 100; 
+class PetersonLockTest {
+    static final int ITERACIONES = 100;
     static final int MAX_VALOR = 100;
     static int aprovacion = 0;
     Lock lock;
-    Counter counter; 
+    Counter counter;
 
     @BeforeEach
     void setUp() {
         lock = new PetersonLock();
     }
 
-    void incrementaContador(){
-        for(int i=0; i<MAX_VALOR; ++i){
+    void incrementaContador() {
+        for (int i = 0; i < MAX_VALOR; ++i) {
             counter.obtenEIncrementa();
         }
     }
@@ -29,7 +29,7 @@ public class PetersonLockTest {
     @Test
     void lockTest() throws InterruptedException {
         Thread[] threads = new Thread[2];
-        for(int i = 0; i < ITERACIONES; i++) {
+        for (int i = 0; i < ITERACIONES; i++) {
             counter = new Counter(lock);
             threads[0] = new Thread(this::incrementaContador, "0");
             threads[1] = new Thread(this::incrementaContador, "1");
@@ -40,14 +40,15 @@ public class PetersonLockTest {
 
             valoresIguales(2 * MAX_VALOR, counter.getValor());
         }
-        if(aprovacion >= 70) System.out.println("Aprovacion del "+ aprovacion +"% \nPRUEBA SUPERADA ;D");
-        assertEquals(true,aprovacion>=70);
+        if (aprovacion >= 70)
+            System.out.println("Aprovacion del " + aprovacion + "% \nPRUEBA SUPERADA ;D");
+        assertEquals(true, aprovacion >= 70);
     }
 
-    void valoresIguales(int valor, int esperado){
-        if(valor != esperado){
-                System.out.println("Los valores no concuerdan");
-        }else{
+    void valoresIguales(int valor, int esperado) {
+        if (valor != esperado) {
+            System.out.println("Los valores no concuerdan");
+        } else {
             ++aprovacion;
         }
     }
@@ -62,7 +63,7 @@ class Counter {
         this.lock = lock;
     }
 
-    int obtenEIncrementa(){
+    int obtenEIncrementa() {
         this.lock.lock();
         int res = this.valor;
         valor = this.valor + 1;
@@ -70,7 +71,7 @@ class Counter {
         return res;
     }
 
-    int getValor(){
+    int getValor() {
         return valor;
     }
 }
