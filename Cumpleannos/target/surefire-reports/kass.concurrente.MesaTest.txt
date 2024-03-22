@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: kass.concurrente.MesaTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 20.014 s <<< FAILURE! - in kass.concurrente.MesaTest
+todosHanIntentadoComerFiltro  Time elapsed: 10.004 s
+todosComieronFiltro  Time elapsed: 10.01 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "kass.concurrente.invitados.Inversionista.getVecesComido()" because "in" is null
+	at kass.concurrente.MesaTest.todosComieronFiltro(MesaTest.java:57)
+

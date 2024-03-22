@@ -14,14 +14,14 @@ public class PetersonLock implements Lock {
 
     private Boolean[] flag = new Boolean[2];
 
-    private Integer victima;
+    private volatile int victima;
 
     @Override
     public void lock() {
         int id = Integer.parseInt(Thread.currentThread().getName());
         flag[id] = true;
-        victima = id;
-        while (flag[1 - id].booleanValue() && victima == id) {
+        this.victima = id;
+        while (Boolean.TRUE.equals(flag[1 - id]) && this.victima == id) {
         }
     }
 
