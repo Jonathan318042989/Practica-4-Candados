@@ -20,7 +20,11 @@ public class InversionistaFiltro extends Inversionista {
     public void entraALaMesa() {
         semaforo.acquire();
         tomaTenedores();
-        come();
+        try {
+            come();
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
+        }
         sueltaTenedores();
         semaforo.release();
     }

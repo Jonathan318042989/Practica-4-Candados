@@ -35,6 +35,7 @@ public class TenedorTest {
             Thread t = Thread.currentThread();
 
             boolean esPar = Integer.parseInt(t.getName()) % 2 == 0;
+            System.out.println("");
             stringBuffer.append(esPar ? 'a' : 'c');
             stringBuffer.append(esPar ? 'b' : 'd');
 
