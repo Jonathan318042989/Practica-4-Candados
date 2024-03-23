@@ -17,7 +17,7 @@ public class TenedorImpl implements Tenedor {
     Integer id;
 
     // Las veces que se ha tomado el tenedor
-    volatile Integer vecesTomado = 1;
+    volatile Integer vecesTomado = 0;
 
     public TenedorImpl(int id) {
         this.id = id;
@@ -30,10 +30,8 @@ public class TenedorImpl implements Tenedor {
 
     @Override
     public void soltar() {
-        if (esUtilizado.booleanValue()) {
-            this.esUtilizado = false;
-            vecesTomado = vecesTomado.intValue()+1;
-        }
+        this.esUtilizado = false;
+        vecesTomado = vecesTomado.intValue()+1;
     }
 
     @Override
